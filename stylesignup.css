@@ -22,7 +22,7 @@ body {
   height: 100vh;
   justify-content: center;
   padding: 10px;
-  background-color: #86745c;
+  background-color: #685c4c;
   color: #00303f;
 }
 
@@ -104,10 +104,29 @@ form .gender-details .category {
 
 .btn {
   background-color: #00303f;
-  width: relative;
+  width: auto;
 }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.rightside {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.vertical-center {
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+  min-height: 100%; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }

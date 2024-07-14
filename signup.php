@@ -1,3 +1,25 @@
+<?php include'php/dbconnection.php';
+
+  if(isset($_POST['submit'])){
+    $member_nama=$_POST['nama'];
+    $member_email=$_POST['email'];
+    $member_umur=$_POST['umur'];
+    $member_alamat=$_POST['alamat'];
+    $member_gender=$_POST['radio'];
+    $member_password=$_POST['password'];
+    
+
+    $insert_query=mysqli_query($conn,"insert into `member_tbl` (member_nama, member_email, member_umur, member_alamat, member_gender, member_password, member_type) values ('$member_nama', '$member_email', '$member_umur', '$member_alamat', '$member_gender', '$member_password', '1')") or die("insert query failed");
+    if($insert_query) {
+      echo "Berhasil registrasi!";
+  }
+  else {
+      echo "Terjadi kesalahan, registrasi gagal.";
+  }
+}
+
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,41 +48,38 @@
       <div class="container">
         <div class="title text-center"></div>
         <img src="asset/TAFLogo.png" width="200" ; class="center" />
-        <form action="#">
+        <form action="" class="addmember" method="post" enctype="multipart/form-data">
           <div class="user-details">
             <div class="input-box">
               <span class="details">Nama</span>
-              <input type="text" placeholder="Enter your name" required />
+              <input type="text" name="nama" placeholder="Enter your name" required />
             </div>
             <div class="input-box">
               <span class="details">Email</span>
-              <input type="text" placeholder="Enter your email" required />
+              <input type="text" name="email" placeholder="Enter your email" required />
             </div>
             <div class="input-box">
               <span class="details">Umur</span>
-              <input type="text" placeholder="Enter your age" required />
+              <input type="number" name="umur" placeholder="Enter your age" required />
             </div>
             <div class="input-box">
               <span class="details">Alamat</span>
-              <input type="text" placeholder="Enter your address" required />
+              <input type="text" name="alamat" placeholder="Enter your address" required />
             </div>
             <div class="input-box">
               <span class="details">Password</span>
-              <input type="text" placeholder="Enter your password" required />
+              <input type="text" name="password" placeholder="Enter your password" required />
             </div>
           </div>
           <div class="gender-details text-center">
-            <input type="radio" name="gender" id="dot-1" />
-            <a>Laki-laki</a>
-            <input type="radio" name="gender" id="dot-2" />
-            <a>Perempuan</a>
-            <div class="category"></div>
-          </div>
-          <div class="col center">
-            <button type="button" input type="submit" value="register" class="btn btn-dark center">Register</button>
+          <input type="radio" name="radio" value="Laki-Laki" class="radio"/> Laki-Laki
+          <input type="radio" name="radio" value="Perempuan" class="radio"/> Perempuan
           </div>
           <div class="col center py-3">
-            <button type="button" input type="submit2" value="register" class="btn btn-dark center">Already have account? Sign In</button>
+          <button type="submit" name="submit" value="submit" class="btn btn-dark center">Daftar!</button>
+          </div>
+          <div class="col center py-3">
+            <button type="button" name="submit" input type="submit2" value="register" class="btn btn-dark center">Sudah punya akun? Masuk!</button>
           </div>
         </form>
       </div>

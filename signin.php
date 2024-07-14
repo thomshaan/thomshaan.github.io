@@ -23,12 +23,12 @@
 
   <body>
     <div class="jumbotron vertical-center">
-      <div class="container" style="background-color: #ffffff">
+      <div class="container" style="background-color: #e4c7a1">
         <div class="row">
           <div class="col">
-            <img src="asset/icon/navbar/flying papers.png" width="300" class="object-fit-contain rounded" ; />
+            <img src="asset/icon/navbar/flying papers.png" width="300" class="vertical-center object-fit-contain rounded" ; />
           </div>
-          <div class="col rightside" style="background-color: #d8d8d8">
+          <div class="col rightside" style="background-color: #b0997a">
             <form action="#">
               <div class="col user-details">
                 <div class="row text-center">

@@ -70,3 +70,9 @@ form .user-details .input-box {
   background-color: #e4c7a1;
   border-radius: 5px;
 }
+
+.card-img-top {
+  width: relative;
+  height: relative;
+  object-fit: scale;
+}
