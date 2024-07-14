@@ -1,0 +1,72 @@
+.marcellus-regular {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.manrope-font {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+}
+
+/* Font End*/
+
+/* Body Start*/
+body {
+  font-family: "Marcellus";
+  color: #312229;
+  text-shadow: 2px 2px 2px #312229(0, 0, 0, 0.2);
+  z-index: 0;
+  background-color: #ffffff;
+}
+.navbar {
+  background-color: #e4c7a1;
+  color: #00303f;
+  position: fixed;
+  height: 100%;
+}
+
+.btn-primary {
+  padding: 10px;
+  background-color: #cae4db;
+  color: #00303f;
+  outline-color: #cae4db;
+  border-color: #cae4db;
+}
+
+h1 {
+  font-family: "Marcellus";
+  color: #00303f;
+}
+a {
+  font-family: "Manrope";
+  color: #00303f;
+}
+.navbackground {
+  background-color: #ffffff;
+}
+footer {
+  background-color: #e4c7a1;
+  color: #00303f;
+}
+
+form .user-details .input-box {
+  margin-bottom: 5px;
+  margin: 20px 0 12px 0;
+  width: calc(100% / 2-20px);
+}
+
+.user-details .input-box .details {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.container-xl {
+  max-width: 700px;
+  width: 100%;
+  background-color: #e4c7a1;
+  border-radius: 5px;
+}

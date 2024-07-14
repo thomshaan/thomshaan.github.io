@@ -1,0 +1,119 @@
+.marcellus-regular {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.manrope-font {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  padding: 10px;
+  background-color: #86745c;
+  color: #00303f;
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  background-color: #e4c7a1;
+  padding: 25px 30px;
+  border-radius: 5px;
+}
+
+.container .title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background-color: #e4c7a1;
+}
+
+.container form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+form .user-details .input-box {
+  margin-bottom: 15px;
+  margin: 20px 0 12px 0;
+  width: calc(100% / 2-20px);
+}
+.user-details .input-box .details {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.user-details .input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.row .user-details .input-box input:focus,
+.row .user-details .input-box input:valid {
+  border-color: #e4c7a1;
+}
+
+form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+form .gender-details .category {
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+.gender-details .category .dot {
+  display: flex;
+  align-items: center;
+}
+
+.gender-details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+}
+
+.btn {
+  background-color: #00303f;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-family: "Marcellus";
+  color: #00303f;
+}
