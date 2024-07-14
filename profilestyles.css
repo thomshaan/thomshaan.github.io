@@ -1,0 +1,150 @@
+body {
+    font-family: 'Manrope';
+    background-color: #d3d3d3;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: auto;
+}
+
+    .member-card h2 {
+        font-family: 'Marcellus SC', serif;
+    }
+
+
+.profile-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-container h1 {
+    margin-top: 0;
+}
+
+
+
+.member-card {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Manrope';
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    color: #333;
+}
+
+.member-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.member-card .card-header h2 {
+    margin-top: 3px;
+    font-size: 1.7em;
+
+}
+
+.member-card .card-header img {
+    width: 200 px;
+    margin-bottom: 20px;
+}
+
+.member-card .card-body p {
+    text-align: left;
+    margin-top: 90px;
+    margin: 5px 0;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 70px;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.copy-button img {
+    width: 20px;
+    height: 20px;
+    
+}
+
+.info-row p {
+    margin: 0;
+}
+
+.info-row2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 120px;
+}
+
+.info-row2 p {
+    margin: 0;
+}
+
+.info-row3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 55px;
+}
+
+.info-row3 p {
+    margin: 0;
+}
+
+
+
+
+.biodata {
+    font-family: 'Manrope'; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+}
+
+.biodata .biodata-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.biodata .biodata-header h2 {
+    font-family: 'Marcellus SC';
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.biodata .edit-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.biodata .edit-button:hover {
+    color: #007BFF;
+}
+
+.biodata .biodata-body p {
+    margin: 5px 0;
+}
