@@ -18,7 +18,7 @@
 }
 
 body {
-  display: flex;
+  display: relative;
   height: 100vh;
   justify-content: center;
   padding: 10px;
@@ -28,7 +28,6 @@ body {
 
 .container {
   max-width: 700px;
-  width: 100%;
   background-color: #e4c7a1;
   padding: 25px 30px;
   border-radius: 5px;
@@ -50,7 +49,7 @@ body {
 }
 
 .container form .user-details {
-  display: flex;
+  display: inline-flexbox;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -85,7 +84,6 @@ form .gender-details .gender-title {
 }
 form .gender-details .category {
   display: flex;
-  width: 80%;
   margin: 14px 0;
   justify-content: space-between;
 }
@@ -106,14 +104,10 @@ form .gender-details .category {
 
 .btn {
   background-color: #00303f;
+  width: relative;
 }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-h1 {
-  font-family: "Marcellus";
-  color: #00303f;
 }

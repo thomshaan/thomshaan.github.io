@@ -23,8 +23,8 @@
 
   <body>
     <div class="container">
-      <div class="title">Registration</div>
-      <img src="asset/TAFLogo.png" width="300" ; />
+      <div class="title text-center"></div>
+      <img src="asset/TAFLogo.png" width="200" ; class="center" />
       <form action="#">
         <div class="user-details">
           <div class="input-box">
@@ -48,22 +48,19 @@
             <input type="text" placeholder="Enter your password" required />
           </div>
         </div>
-        <div class="gender-details">
+        <div class="gender-details text-center">
           <input type="radio" name="gender" id="dot-1" />
+          <a>Laki-laki</a>
           <input type="radio" name="gender" id="dot-2" />
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Male</span>
-            </label>
-            <label for="dot-2">
-              <span class="dot one"></span>
-              <span class="gender">Female</span>
-            </label>
-          </div>
+          <a>Perempuan</a>
+          <div class="category"></div>
         </div>
-        <button type="button" input type="submit" value="register" class="btn btn-dark">Register</button>
+        <div class="col center">
+          <button type="button" input type="submit" value="register" class="btn btn-dark center">Register</button>
+        </div>
+        <div class="col center py-3">
+          <button type="button" input type="submit2" value="register" class="btn btn-dark center">Already have account? Sign In</button>
+        </div>
       </form>
     </div>
   </body>
