@@ -8,14 +8,14 @@ if(isset($_POST['submit'])){
 
   $username = $_POST['member_email']; 
   $password = $_POST['member_password']; 
-  $sql = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password' AND member_type = '1'"; 
+  $sql = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password' AND member_type = '2'"; 
   $result = $conn->query($sql); 
   $data = mysqli_query($conn, "select * from `member_tbl` where member_email = '$member_email'");
   $fetchdata = mysqli_fetch_assoc($data);
   
   if($result->num_rows > 0){ 
     $_SESSION['member_email'] = $username; 
-    header("Location: dashboardclient.php");
+    header("Location: admindashboard.php");
   }
   else{
     echo "Login gagal.";
@@ -53,8 +53,8 @@ if(isset($_POST['submit'])){
   </head>
 
   <body style="background: linear-gradient(0deg, rgba(0,48,63,0.674269561340161) 0%, rgba(228,199,161,1) 92%);">
-    <div class="jumbotron vertical-center shadow">
-      <div class="container "style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);" >
+    <div class="jumbotron vertical-center" >
+      <div class="container" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
         <div class="row">
           <div class="col">
             <img src="asset/icon/navbar/flying papers.png" width="300" class="vertical-center object-fit-contain rounded" ; />
@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
             <form action="" class="signin" method="post" enctype="multipart/form-data">
               <div class="col user-details">
                 <div class="row text-center">
-                  <h3>Welcome, Reader!</h3>
+                  <h3>Welcome, Administrator!</h3>
                 </div>
                 <div class="row">
                   <a>Email</a>
@@ -84,9 +84,8 @@ if(isset($_POST['submit'])){
                 <div class="row py-2">
                   <button type="submit" name="submit" value="submit" class="btn btn-dark center">Sign In</button>
                 </div>
-                <div class="row py-2 text-center">
-                  <a href="signup.php">Doesn't have account? Sign Up</a>
-                  <a href="signinadmin.php">Administrator Login</a>
+                <div class="row py-2">
+                  <button type="button" onclick="location.href='signup.php';" value="Go to Sign Up" class="btn btn-dark center">Doesn't have account? Sign Up</button>
                 </div>
               </div>
             </form>
