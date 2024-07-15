@@ -29,12 +29,18 @@
                 <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center ">
                     <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
                       <li class="btn py-3 align-self-start">
-                        <img src="asset/TAFLogo.png" width="100" class="py-5" ; />
+                        
+                        <img src="asset/TAFLogo.png" width="100" class="py-5" onclick="location.href='index.php';" ; />
                         </li>
                             <li>
-                                <li class="btn py-5 align-self-start">
+                                <li class="btn py-3 align-self-start" onclick="location.href='signin.php'">
                                     <img src="asset/icon/navbar/logout.png" width="20" ; />
-                                    <a>Sign In</a>
+                                    <a>Masuk</a>
+
+                                </li>
+                                <li class="btn py-3 align-self-start" onclick="location.href='signup.php'">
+                                    <img src="asset/icon/navbar/logout.png" width="20" ; />
+                                    <a>Daftar</a>
 
                                 </li>
                               </li>
@@ -64,7 +70,7 @@
                                 <nav class="navbackground navbar-light">
                                     <button type="button" class="btn btn-primary" data-mdb-ripple-init>
                                         <img src="asset/icon/navbar/login.png" width="20"  ; />
-                                        Login</button>
+                                        <a href="signin.php">Login</a></button>
                                   </nav>
                             </div>
                         
@@ -107,7 +113,7 @@
                             <h5 class="card-title"><?php echo $fetch_book['buku_nama']?></h5>
                             <p class="card-text"><?php echo $fetch_book['buku_pengarang']?></p>
                             <a href="#" class="btn btn-primary">Favorit!</a>
-                            <a href="#" class="btn btn-primary">Pinjam</a>
+                            <a href="detailbuku.php?buku_id=<?php echo $fetch_book['buku_id']?>" class="btn btn-primary">Lihat!</a>
                           </div>
                         </div>
                           </form>
@@ -118,12 +124,9 @@
                               echo "<div class='empty_text'>No Book Available</div>";
                           }
                           ?>
-
-                        
-                          
-
+                        </div>
+                      </div>
                     </div>
-
                         <div class="flex mb-6 py-2"> 
                             <h1>Bed Time Story</h1>
                             <a>Buku-buku yang cocok untuk dibaca sebelum tidur!</a>
@@ -133,7 +136,7 @@
                       <div class="row">
                         <div class="row row-cols-1 row-cols-md-5 g-4 pb-5">
                           <?php
-                          $select_book=mysqli_query($conn,'Select * from `buku_tbl`');
+                          $select_book=mysqli_query($conn,'Select * from `buku_tbl` ');
                           if(mysqli_num_rows($select_book)> 0){
                             while($fetch_book = mysqli_fetch_assoc($select_book)){
                               ?>
@@ -144,7 +147,7 @@
                             <h5 class="card-title"><?php echo $fetch_book['buku_nama']?></h5>
                             <p class="card-text"><?php echo $fetch_book['buku_pengarang']?></p>
                             <a href="#" class="btn btn-primary">Favorit!</a>
-                            <a href="#" class="btn btn-primary">Pinjam</a>
+                            <a href="detailbuku.php?buku_id=<?php echo $fetch_book['buku_id']?>" class="btn btn-primary">Lihat!</a>
                           </div>
                         </div>
                           </form>

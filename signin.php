@@ -1,3 +1,33 @@
+<?php 
+session_start(); 
+include("php/dbconnection.php"); 
+
+if(isset($_POST['submit'])){
+  $username = $_POST['member_email']; 
+  $password = $_POST['member_password']; 
+  
+  $sql = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password'"; 
+  $result = $conn->query($sql); 
+
+  if ($result->num_rows > 0) { 
+
+    $_SESSION['member_email'] = $username; 
+   
+    header("Location: dashboardclient.php"); 
+   
+   } else { 
+   
+    echo "Login gagal. <a href='index.php'>Coba lagi</a>"; 
+   
+   } 
+   
+   $conn->close(); 
+
+  }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +59,7 @@
             <img src="asset/icon/navbar/flying papers.png" width="300" class="vertical-center object-fit-contain rounded" ; />
           </div>
           <div class="col rightside" style="background-color: #b0997a">
-            <form action="#">
+            <form action="" class="signin" method="post" enctype="multipart/form-data">
               <div class="col user-details">
                 <div class="row text-center">
                   <h3>Welcome, Reader!</h3>
@@ -39,7 +69,7 @@
                 </div>
                 <div class="row">
                   <div class="input-box">
-                    <input type="text" placeholder="Enter your email" required />
+                    <input type="text" name="member_email" placeholder="Enter your email"required/>
                   </div>
                 </div>
                 <div class="row">
@@ -47,14 +77,14 @@
                 </div>
                 <div class="row">
                   <div class="input-box">
-                    <input type="text" placeholder="Enter your password" required />
+                    <input type="text" name="member_password" placeholder="Enter your password"required/>
                   </div>
                 </div>
                 <div class="row py-2">
-                  <button type="button" input type="submit" value="register" class="btn btn-dark center">Sign In</button>
+                  <button type="submit" name="submit" value="submit" class="btn btn-dark center">Sign In</button>
                 </div>
                 <div class="row py-2">
-                  <button type="button" input type="submit2" value="register" class="btn btn-dark center">Doesn't have account? Sign Up</button>
+                  <button type="button" onclick="location.href='signup.php';" value="Go to Sign Up" class="btn btn-dark center">Doesn't have account? Sign Up</button>
                 </div>
               </div>
             </form>

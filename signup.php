@@ -79,7 +79,7 @@
           <button type="submit" name="submit" value="submit" class="btn btn-dark center">Daftar!</button>
           </div>
           <div class="col center py-3">
-            <button type="button" name="submit" input type="submit2" value="register" class="btn btn-dark center">Sudah punya akun? Masuk!</button>
+            <button type="button" onclick="location.href='signin.php';" value="Go to Sign In name="submit" input type="submit2" value="register" class="btn btn-dark center">Sudah punya akun? Masuk!</button>
           </div>
         </form>
       </div>
