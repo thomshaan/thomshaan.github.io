@@ -47,27 +47,31 @@
                       <li class="btn py-3 align-self-start" onclick="location.href='dashboardclient.php';">
                           <img src="asset/TAFLogo.png" width="150" class="py-5" ; />
                       </li>
-                      <li class="btn py-3 align-self-start" onclick="location.href='profil.php';">
+                      <li class="btn py-3 align-self-start" onclick="location.href='adminprofil.php';">
                           <img src="asset/icon/navbar/idcard.png" width="20" ; />
                           <a>Profil</a>
                       </li>
                       <li>
-                      <li class="btn py-3 align-self-start" onclick="location.href='listbuku.php';">
+                      <li class="btn py-3 align-self-start" onclick="location.href='adminlistbuku.php';">
                           <img src="asset/icon/navbar/home.png" width="20" ; />
                           <a>List Buku</a>
                       </li>
                       <li>
-                      <li class="btn py-3 align-self-start" onclick="location.href='dashboardclient.php';">
+                      <li class="btn py-3 align-self-start" onclick="location.href='adminlistmember.php';">
                           <img src="asset/icon/navbar/bookshelf.png" width="20" ; />
-                          <a>Dashboard</a>
+                          <a>List Member</a>
                       </li>
                       <li>
-                      <li class="btn py-3 align-self-start" onclick="location.href='statuspeminjaman.php';">
+                      <li class="btn py-3 align-self-start" onclick="location.href='adminstatuspeminjaman.php';">
                           <img src="asset/icon/navbar/bookstatus.png" width="20" ; />
                           <a>Status Peminjaman</a>
                       </li>
                       <li>
-                      <li class="btn py-3 align-self-start" onclick="location.href='settings.php';">
+                      <li class="btn py-3 align-self-start" onclick="location.href='admintambahbuku.php';">
+                          <img src="asset/icon/navbar/settings.png" width="20" ; />
+                          <a>Penambahan Buku</a>
+                      </li>
+                      <li class="btn py-3 align-self-start" onclick="location.href='adminsettings.php';">
                           <img src="asset/icon/navbar/settings.png" width="20" ; />
                           <a>Pengaturan</a>
                       </li>
@@ -106,7 +110,6 @@
 
                       <div class="info-row2">
                           <p><strong>Email:</strong> <br><?php echo $fetchdata['member_email']?></p>
-                          <p><strong>Pinjaman Buku:</strong> <br>////</p>
                       </div>
 
                       <div class="info-row3">

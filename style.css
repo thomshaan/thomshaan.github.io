@@ -26,6 +26,7 @@ body {
   color: #00303f;
   position: fixed;
   height: 100%;
+  
 }
 
 .btn-primary {
@@ -235,4 +236,53 @@ form .user-details .input-box {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+td>img {
+  margin: 0 auto;
+ }
+
+ .smallbutton{
+  text-size-adjust: 5px;
+ }
+
+.slide-track{
+  display: flex;
+  width: calc(250px * 18);
+}
+
+@keyframes scroll{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-250px *9));
+    animation: scroll 40s linear infinite;
+  }
+}
+
+.slide{
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 150px;
+}
+
+.slideer::before, .slider::after{
+  content: '';
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+
+.slider::before{
+  left: 0;
+  top: 0;
+}
+
+.slider::after{
+  right:0;
+  top:0;
+  transform: rotateZ(180deg);
+
 }

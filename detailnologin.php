@@ -3,9 +3,6 @@
   include 'php/dbconnection.php';
 
   session_start();
-  $_SESSION['member_email'];
-  $member_email = $_SESSION['member_email'];
-  $member_id = $_SESSION['member_id'];
   $buku_id = "";
 
   if (isset($_GET["buku_id"])) {
@@ -15,40 +12,6 @@
   $select_book = mysqli_query($conn, "Select * from `buku_tbl` WHERE buku_id = '$buku_id'");
   $fetch_book = mysqli_fetch_assoc($select_book);
   $jumlahbuku = $fetch_book["buku_jumlah"];
-
-
-  date_default_timezone_set('Asia/Bangkok');
-  $timezone = date_default_timezone_get();
-  $tgldipinjam = date('Y/m/d', time());
-  $tglkembali = date('Y/m/d', strtotime('+7 days'));
-
-  if (isset($_POST['pinjambuku'])) {
-    $peminjaman_tanggaldipinjam = $tgldipinjam;
-    $peminjaman_tanggalkembali = $tglkembali;
-    $peminjaman_status = "Diajukan";
-    $id_anggota = $member_id;
-    $id_buku = $buku_id;
-
-    if ($jumlahbuku > 0) {
-      $insert_query = mysqli_query($conn, "insert into `dipinjam_tbl` (peminjaman_tanggaldipinjam, peminjaman_tanggalkembali, peminjaman_status, id_anggota, id_buku) values('$peminjaman_tanggaldipinjam', '$peminjaman_tanggalkembali', '$peminjaman_status', '$id_anggota', '$id_buku')") or die("insert query failed");
-
-      if ($insert_query) {
-        $sql = "update `buku_tbl` set buku_jumlah = buku_jumlah-1 where buku_id = '$buku_id'";
-        $stmt = $conn->prepare($sql);
-        if ($stmt->execute()) {
-          echo "Berhasil meminjam, cek menu status peminjaman!";
-        } else {
-          echo "Terjadi kesalahan saat memperbarui data," . $stmt->error;
-        }
-      } else {
-        echo "Terjadi kesalahan, peminjaman gagal.";
-      }
-    } else {
-      echo "Terjadi kesalahan, buku habis.";
-    }
-  }
-
-
 
   ?>
 
@@ -84,38 +47,21 @@
         <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center ">
           <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
             <li class="btn py-3 align-self-start">
-              <img src="asset/TAFLogo.png" width="150" class="py-5" ; />
-            </li>
-            <li class="btn py-3 align-self-start">
-              <img src="asset/icon/navbar/idcard.png" width="20" ; />
-              <a>Profil</a>
-            </li>
-            <li>
-            <li class="btn py-3 align-self-start">
-              <img src="asset/icon/navbar/home.png" width="20" ; />
-              <a>List Buku</a>
-            </li>
-            <li>
-            <li class="btn py-3 align-self-start">
-              <img src="asset/icon/navbar/bookshelf.png" width="20" ; />
-              <a>Dashboard</a>
-            </li>
-            <li>
-            <li class="btn py-3 align-self-start">
-              <img src="asset/icon/navbar/bookstatus.png" width="20" ; />
-              <a>Status Peminjaman</a>
-            </li>
-            <li>
-            <li class="btn py-3 align-self-start">
-              <img src="asset/icon/navbar/settings.png" width="20" ; />
-              <a>Settings</a>
-            </li>
-            </li>
-            <li>
-            <li class="btn py-5 align-self-start">
-              <img src="asset/icon/navbar/logout.png" width="20" ; />
-              <a>Log Out</a>
 
+              <img src="asset/TAFLogo.png" width="100" class="py-5" onclick="location.href='index.php';" ; />
+            </li>
+            <li>
+            <li class="btn py-3 align-self-start" onclick="location.href='signin.php'">
+              <img src="asset/icon/navbar/logout.png" width="20" ; />
+              <a>Masuk</a>
+
+            </li>
+            <li class="btn py-3 align-self-start" onclick="location.href='signup.php'">
+              <img src="asset/icon/navbar/logout.png" width="20" ; />
+              <a>Daftar</a>
+
+            </li>
+            </li>
             </li>
             </li>
             </li>
@@ -164,8 +110,6 @@
               </div>
               <form action="" class="detailbook" method="post" enctype="multipart/form-data">
                 <div class="grid grid-cols-2 py-5">
-                  <button type="submit" name="tambahwishlist" value="tambahwishlist" class="btn btn-dark w-50 center">Tambahkan Buku ke Wishlist</button>
-                  <button type="submit" name="pinjambuku" value="pinjambuku" class="btn btn-dark w-50 center">Pinjam buku ini!</button>
                 </div>
               </form>
 
@@ -193,8 +137,7 @@
                     <div class="card-body">
                       <h5 class="card-title"><?php echo $fetch_book['buku_nama'] ?></h5>
                       <p class="card-text"><?php echo $fetch_book['buku_pengarang'] ?></p>
-                      <a href="#" class="btn btn-primary">Favorit!</a>
-                      <a href="detailbuku.php?buku_id=<?php echo $fetch_book['buku_id'] ?>" class="btn btn-primary">Lihat!</a>
+                      <a href="detailnologin.php?buku_id=<?php echo $fetch_book['buku_id'] ?>" class="btn btn-primary">Lihat!</a>
                     </div>
                   </div>
                 </form>
