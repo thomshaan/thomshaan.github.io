@@ -1,4 +1,7 @@
-<?php include 'php/dbconnection.php'; ?>
+<?php include 'php/dbconnection.php'; 
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,10 +66,12 @@
                             </div>
                             <div class="col-sm-auto d-flex py-5">
                                 <nav class="navbackground navbar-light">
-                                    <form class="form-inline">
-                                        <input class="form-control mr-sm-2" type="search" placeholder="Name/Author/ISBN" aria-label="Search">
+                                    <form class="form-inline" id="search-form">
+                                        <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Name/Author/ISBN" aria-label="Search">
+                                        
                                     </form>
-                                </nav>
+                                    <div id="search-results"></div>
+                                </nav>  
                             </div>
                             <div class="col-sm-auto d-flex py-5">
 
@@ -165,6 +170,26 @@
 </body>
 <!-- Script Start -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search-form').submit(function(event) {
+            event.preventDefault();
+            var searchTerm = $('#search-input').val();
+            $.ajax({
+                type: 'POST',
+                url: 'php/dbsearch.php',
+                data: {searchTerm: searchTerm},
+                success: function(response) {
+                    $('#search-results').html(response);
+                },
+                error: function() {
+                    $('#search-results').html('<p>Error occurred while performing the search.</p>');
+                }
+            });
+        });
+    });
 </script>
 <!-- Script Finished -->
 

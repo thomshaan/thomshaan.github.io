@@ -92,9 +92,11 @@ session_start();
                         </div>
                         <div class="col-sm-auto d-flex py-5">
                             <nav class="navbackground navbar-light">
-                                <form class="form-inline">
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Name/Author/ISBN" aria-label="Search">
+                                <form class="form-inline" id="search-form">
+                                    <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Name/Author/ISBN" aria-label="Search">
+
                                 </form>
+                                <div id="search-results"></div>
                             </nav>
                         </div>
                         <div class="col-sm-auto d-flex py-5">
@@ -213,7 +215,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                    </div>            
+                    </div>
 
                     <div class="row py-3">
                         <div class="flex mb-6 py-2">
@@ -250,7 +252,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row py-3">
                         <div class="flex mb-6 py-2">
                             <h1>Buku Agama</h1>
@@ -322,7 +324,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                          
+
                     <div class="row py-3">
                         <div class="flex mb-6 py-2">
                             <h1>Buku Petualangan</h1>
@@ -403,7 +405,28 @@ session_start();
 
 <!-- Script Start -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search-form').submit(function(event) {
+            event.preventDefault();
+            var searchTerm = $('#search-input').val();
+            $.ajax({
+                type: 'POST',
+                url: 'php/dbsearchadmin.php',
+                data: {
+                    searchTerm: searchTerm
+                },
+                success: function(response) {
+                    $('#search-results').html(response);
+                },
+                error: function() {
+                    $('#search-results').html('<p>Error occurred while performing the search.</p>');
+                }
+            });
+        });
+    });
 </script>
 <!-- Script Finished -->
 

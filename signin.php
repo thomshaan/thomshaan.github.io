@@ -5,16 +5,16 @@ include("php/dbconnection.php");
 
 
 if (isset($_POST['submit'])) {
-
   $username = $_POST['member_email'];
   $password = $_POST['member_password'];
-  $sql = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password' AND member_type = '1'";
-  $result = $conn->query($sql);
+
+  $checkdata = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password' AND member_type = '1'";
+  $result1 = $conn->query($checkdata);
 
   $sql = "SELECT member_id FROM member_tbl WHERE member_email = '$username'";
-  $result = $conn->query($sql);
-  if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
+  $result2 = $conn->query($sql);
+  if ($result2->num_rows > 0) {
+    $row = $result2->fetch_assoc();
     $member_id = $row["member_id"];
 
     // simpan member_id ke dalam session variable
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     echo "Tidak ada data member yang ditemukan.";
   }
 
-  if ($result->num_rows > 0) {
+  if ($result1->num_rows > 0) {
     $_SESSION['member_email'] = $username;
     $_SESSION['member_id'] = $member_id;
     header("Location: dashboardclient.php");

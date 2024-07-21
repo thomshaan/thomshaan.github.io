@@ -60,7 +60,7 @@
               <a>Status Peminjaman</a>
             </li>
             <li>
-            <li class="btn py-3 align-self-start" onclick="location.href='adminsettings.php';">
+            <li class="btn py-3 align-self-start" onclick="location.href='admintambahbuku.php';">
               <img src="asset/icon/navbar/settings.png" width="20" ; />
               <a>Penambahan Buku</a>
             </li>

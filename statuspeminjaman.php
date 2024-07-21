@@ -149,7 +149,8 @@ if (isset($_POST['dikembalikan'])) {
                                 dipinjam_tbl.id_buku
                             FROM buku_tbl
                             JOIN dipinjam_tbl ON dipinjam_tbl.id_buku = buku_tbl.buku_id
-                            WHERE dipinjam_tbl.id_anggota = '$member_id'");
+                            WHERE dipinjam_tbl.id_anggota = '$member_id'
+                            AND dipinjam_tbl.peminjaman_status <> 'SELESAI'");
 
                   if (mysqli_num_rows($select_book)) {
                     while ($fetch_book = mysqli_fetch_assoc($select_book)) {

@@ -1,44 +1,41 @@
-<?php 
+<?php
 session_start();
-include("php/dbconnection.php"); 
+include("php/dbconnection.php");
 
-  
 
-if(isset($_POST['submit'])){
 
-  $username = $_POST['member_email']; 
-  $password = $_POST['member_password']; 
-  $sql = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password' AND member_type = '2'"; 
-  $result = $conn->query($sql); 
-  $data = mysqli_query($conn, "select * from `member_tbl` where member_email = '$member_email'");
-  $fetchdata = mysqli_fetch_assoc($data);
+if (isset($_POST['submit'])) {
+  $username = $_POST['member_email'];
+  $password = $_POST['member_password'];
+
+  $checkdata = "SELECT * FROM member_tbl WHERE member_email = '$username' AND member_password ='$password' AND member_type = '2'";
+  $result1 = $conn->query($checkdata);
 
   $sql = "SELECT member_id FROM member_tbl WHERE member_email = '$username'";
-  $result = $conn->query($sql);
-  if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
+  $result2 = $conn->query($sql);
+  if ($result2->num_rows > 0) {
+    $row = $result2->fetch_assoc();
     $member_id = $row["member_id"];
 
     // simpan member_id ke dalam session variable
     $_SESSION['member_id'] = $member_id;
 
     echo "Member ID berhasil disimpan ke session.";
-} else {
+  } else {
     echo "Tidak ada data member yang ditemukan.";
-}
-  
-  if($result->num_rows > 0){ 
-    $_SESSION['member_email'] = $username; 
+  }
+
+  if ($result1->num_rows > 0) {
+    $_SESSION['member_email'] = $username;
+    $_SESSION['member_id'] = $member_id;
     header("Location: admindashboard.php");
-  }
-  else{
+  } else {
     echo "Login gagal.";
-    header("Location: signin.php"); 
+    header("Location: signin.php");
   }
 
-   $conn->close(); 
-
-  }
+  $conn->close();
+}
 ?>
 
 

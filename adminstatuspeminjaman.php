@@ -85,7 +85,7 @@ if (isset($_POST['selesai'])) {
             <a>List Buku</a>
           </li>
           <li>
-          <li class="btn py-3 align-self-start" onclick="location.href='adminlistmember';">
+          <li class="btn py-3 align-self-start" onclick="location.href='adminlistmember.php';">
             <img src="asset/icon/navbar/bookshelf.png" width="20" ; />
             <a>List Member</a>
           </li>
@@ -158,7 +158,8 @@ if (isset($_POST['selesai'])) {
                                 member_tbl.member_nama
                             FROM buku_tbl
                             JOIN dipinjam_tbl ON dipinjam_tbl.id_buku = buku_tbl.buku_id
-                            JOIN member_tbl ON dipinjam_tbl.id_anggota = member_tbl.member_id");
+                            JOIN member_tbl ON dipinjam_tbl.id_anggota = member_tbl.member_id
+                            WHERE dipinjam_tbl.peminjaman_status <> 'SELESAI'");
 
               if (mysqli_num_rows($select_book)) {
                 while ($fetch_book = mysqli_fetch_assoc($select_book)) {
@@ -246,7 +247,8 @@ if (isset($_POST['selesai'])) {
                                 member_tbl.member_nama
                             FROM buku_tbl
                             JOIN dipinjam_tbl ON dipinjam_tbl.id_buku = buku_tbl.buku_id
-                            JOIN member_tbl ON dipinjam_tbl.id_anggota = member_tbl.member_id");
+                            JOIN member_tbl ON dipinjam_tbl.id_anggota = member_tbl.member_id 
+                            WHERE dipinjam_tbl.peminjaman_status = 'SELESAI'");
 
               if (mysqli_num_rows($select_book)) {
                 while ($fetch_book = mysqli_fetch_assoc($select_book)) {

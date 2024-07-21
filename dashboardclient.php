@@ -39,7 +39,7 @@ session_start();
                         <li>
 
                         </li>
-                        <li class="btn  py-3 align-self-start"; onclick="location.href='dashboardclient.php';">
+                        <li class="btn  py-3 align-self-start" ; onclick="location.href='dashboardclient.php';">
                             <img src="asset/TAFLogo.png" width="150" class="py-5" ; />
                         </li>
                         <li class="btn py-3 align-self-start" onclick="location.href='profil.php';">
@@ -52,7 +52,7 @@ session_start();
                             <a>List Buku</a>
                         </li>
                         <li>
-                        <li class="btn btn-outline-secondary     py-3 align-self-start" onclick="location.href='dashboardclient.php';">
+                        <li class="btn py-3 align-self-start" onclick="location.href='dashboardclient.php';">
                             <img src="asset/icon/navbar/bookshelf.png" width="20" ; />
                             <a>Dashboard</a>
                         </li>
@@ -89,9 +89,11 @@ session_start();
                         </div>
                         <div class="col-sm-auto d-flex py-5">
                             <nav class="navbackground navbar-light">
-                                <form class="form-inline">
-                                    <input class="form-control mr-sm-2" type="search" placeholder="Name/Author/ISBN" aria-label="Search">
+                                <form class="form-inline" id="search-form">
+                                    <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Name/Author/ISBN" aria-label="Search">
+
                                 </form>
+                                <div id="search-results"></div>
                             </nav>
                         </div>
                         <div class="col-sm-auto d-flex py-5">
@@ -197,7 +199,28 @@ session_start();
 
 <!-- Script Start -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#search-form').submit(function(event) {
+            event.preventDefault();
+            var searchTerm = $('#search-input').val();
+            $.ajax({
+                type: 'POST',
+                url: 'php/dbsearch.php',
+                data: {
+                    searchTerm: searchTerm
+                },
+                success: function(response) {
+                    $('#search-results').html(response);
+                },
+                error: function() {
+                    $('#search-results').html('<p>Error occurred while performing the search.</p>');
+                }
+            });
+        });
+    });
 </script>
 <!-- Script Finished -->
 
